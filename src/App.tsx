@@ -1,5 +1,4 @@
 import './App.css'
-import axios from 'axios'
 import { useFetchAPI } from './hooks/useFetchAPI';
 
 type Repository = {
@@ -8,24 +7,21 @@ type Repository = {
 }
 
 function App() {
-  const { data } = useFetchAPI<Repository[]>('https://api.github.com/users/guilhermefonseca2021/repos')
+  const { data: repositories, isFetching } = useFetchAPI<Repository[]>('https://api.github.com/users/guilhermefonseca2021/repos')
 
-  // useEffect(() => {
-  //   fetch('https...')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setRepositories(data);
-  //     })
-  // }, [])
+  console.log()
+  
   return (
     <>
       <h1> my Repositories </h1>
       <ul>
-        {data?.map(repo => {
+        { isFetching && <p>carregando...</p>}
+        {/* ?   quando carregar apresente */}
+        {repositories?.map(repo => {
           return(
             <li key={repo.full_name}>
               <strong>{repo.full_name}</strong>
-              <p>repo.description</p>
+              <p>{repo.discription}</p>
             </li>
           )
         })}

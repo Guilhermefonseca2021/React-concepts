@@ -27,3 +27,14 @@ useEffect(() => {
 }, [url])
 
 <p> Criamos um hook para nossa API(para ter mais controle das propriedades) </p>
+
+
+## Hooks no React
+
+
+gerencia um estado 'useState' que é tudo que é rederizado na tela que é atualizada na tela.
+
+
+## UseContext
+
+gerencia os estados globais fazendo compartilhamento para toda nossa arvore de componentes

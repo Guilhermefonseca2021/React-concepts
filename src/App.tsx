@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import './App.css'
 import { useFetchAPI } from './hooks/useFetchAPI';
+import axios from 'axios'
 
 type Repository = {
   full_name: string;
@@ -8,8 +10,6 @@ type Repository = {
 
 function App() {
   const { data: repositories, isFetching } = useFetchAPI<Repository[]>('https://api.github.com/users/guilhermefonseca2021/repos')
-
-  console.log()
   
   return (
     <>
@@ -26,6 +26,12 @@ function App() {
           )
         })}
       </ul>
+
+
+      <h1>API posts from JSONPLACEHOLDER</h1>
+      <div>
+        {posts.map(post => <p>{post}</p>)}
+      </div>
     </>
   )
 }

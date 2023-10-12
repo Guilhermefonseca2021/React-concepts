@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import { useFetchAPI } from './hooks/useFetchAPI';
 import useHookState from './hooks/useHookState';
+import UseEffect from './UseEffect';
 
 type Repository = {
   full_name: string;
@@ -69,8 +70,12 @@ function App() {
             checked={checked}
             onChange={e => setChecked(e.target.checked)}
           />
+
         </div>
       </div>
+
+      <UseEffect />
+
       </main>
     </>
   )

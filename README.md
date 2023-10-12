@@ -75,3 +75,9 @@ useEffect(() => {
         console.log('holla destruction')
     }
 }, [])
+
+
+## Arvore de uma aplicacao
+
+
+<img width="1416" alt="componentes-reutilizaveis" src="https://github.com/Guilhermefonseca2021/data-fetching/assets/92196697/3a7bdf1c-a039-44e3-9d80-b52637c9ab5a">

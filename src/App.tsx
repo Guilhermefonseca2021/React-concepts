@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import { useFetchAPI } from './hooks/useFetchAPI';
-import axios from 'axios'
+import useHookState from './hooks/useHookState';
 
 type Repository = {
   full_name: string;
@@ -10,13 +10,26 @@ type Repository = {
 
 function App() {
   const { data: repositories, isFetching } = useFetchAPI<Repository[]>('https://api.github.com/users/guilhermefonseca2021/repos')
+  const { count, minhastring, countNoHook, handleIncrement } = useHookState('nome do youtube')
+
+  const [value, setValue] = useState('initial value')
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    console.log('hello from useEffect');
+
+    return () => {
+      console.log('hello from destruction')
+    }
+  }, [])
+
   
   return (
     <>
-      <h1> my Repositories </h1>
-      <ul>
+    
+      <h1> my Repositories (Axios fetch)</h1>
+      <ul className='repos'>
         { isFetching && <p>carregando...</p>}
-        {/* ?   quando carregar apresente */}
         {repositories?.map(repo => {
           return(
             <li key={repo.full_name}>
@@ -28,10 +41,37 @@ function App() {
       </ul>
 
 
-      <h1>API posts from JSONPLACEHOLDER</h1>
-      <div>
-        {posts.map(post => <p>{post}</p>)}
+      <main>
+      <div className='hook-container'>
+        <h2>Contador hoook useState</h2>
+        <p>contagem com hook: {count}</p>
+        <p>contagem sem hook: {countNoHook}</p>
+        <p>nome: {minhastring}</p>
+
+        <button onClick={handleIncrement}> Somar</button>
       </div>
+
+
+      <h2>useEffect</h2>
+      <div className='useeffect-container'>
+        <div>
+          <p>com useeffect</p>
+          <input 
+            type="text" 
+            value={value}
+            onChange={e => setValue(e.target.value)}
+          />
+        </div>
+        <div>
+          <p>sem useeffect</p>
+          <input 
+            type="checkbox" 
+            checked={checked}
+            onChange={e => setChecked(e.target.checked)}
+          />
+        </div>
+      </div>
+      </main>
     </>
   )
 }

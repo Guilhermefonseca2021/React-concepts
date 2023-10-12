@@ -1,5 +1,49 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 2rem;
+}
+
+* {
+  margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  font-weight: 100;
+}
+
+.repos {
+  max-height: 300px;
+  width: 400px;
+  margin: 0em;
+  overflow: auto;
+}
+
+main {
+  margin-top: 3rem;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hook-container {
+  width: 350px;
+}
+
+.useeffect-container {
+  width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+input[type='text'] {
+  padding: .3rem;
+}
+
+input[type='checkbox'] {
+  height: 30px;
+  width: 30px;
 }

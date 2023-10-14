@@ -1,12 +1,9 @@
-import { UseContext } from "react"
-import { CustomerContext } from "../context/customerForm"
 
-export default function helloContext() {
-    const { name } = UseContext(CustomerContext)
-  
-    return (
-    <div>
-        <p> {name} </p>
-    </div>
+export default function HelloContext({ name }) {
+  return (
+    <header>
+        <h1>{name}</h1>
+        <p>seja bem vindo!</p>
+    </header>
   )
 }

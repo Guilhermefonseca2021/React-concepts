@@ -1,27 +1,23 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import './App.css'
-import FormCallBack from './components/formCallback'
-import Hello from './components/helloContext'
-import { CustomerContext } from './context/customerForm'
+import FormCallback from './components/formCallback'
+import HelloContext from './components/helloContext';
 
 function App() {
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
-  function handleSubmit({name, email}) {
-    console.log('dados app', {name, email})
+  function handleSubmit({ name, email }) {
+    console.log('dados do App', { name, email })
 
-    setName(name)
-    setEmail(email)
+    setName(name);
+    setEmail(email);
   }
 
   return (
     <>
-      <CustomerContext.Provider value={{name, email, submit: handleSubmit}}>
-        <FormCallBack 
-        />
-        <Hello />
-      </CustomerContext.Provider>
+      <HelloContext name={name} />
+      <FormCallback onSubmit={handleSubmit} />
     </>
   )
 }

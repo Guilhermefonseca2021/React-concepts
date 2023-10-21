@@ -1,80 +1,98 @@
-## Fetch API with axios 
+## React e boas praticas
 
-axios pega nossos dados como JSON por padrao, podemos dar um console.log(data) e ler toda nossa api restfull.
+<p align="center">
+   <a href="#nocoes-de-algoritmo">Material de estudo</a> / 
+   <a href="#insights">Insifhts</a>
+</p>
 
-### Forma mais comun (sem axios)
+## Nocoes de algoritmo
 
-useEffect(() => {
-   fetch('https...')     
-    .then(response =>   
-        response.json())
-    .then(data => {
-       setRepositories(data);
-    })
-}, [])
-
-### Com axios.
-
-cons [data, setData] = useState([])
-useEffect(() => {
-    axios.get(url)
-    .then(response => {
-        setData(response.data)
-        })
-    .finally(() => {
-        setFetching(false)
-    })
-}, [url])
-
-<p> Criamos um hook para nossa API(para ter mais controle das propriedades) </p>
+- [x] Comportamento de closures no React
+- [x] Fetch API with Axios
+- [x] Derived states entre componentes
+   - [x] Fluxo de renderizacao
+   - [x] UseEffect com condicionais (ou uma variavel para controle de renderizacao)
+   - [ ] UseMemo / Usecallback
+- [x] Hooks X Class
+- [x] Context API
+   - [x] Arvore de componentes
+- [x] Comportamento de estados assincrono
 
 
-## Hooks no React
 
 
-gerencia um estado 'useState' que é tudo que é rederizado na tela que é atualizada na tela. (mais atomicos usamos ele dentro de componentes)
+## Insights
 
+Conexao de Frontend com backend com axios pega nossos dados como JSON por padrao, podemos dar um console.log(data) e ler toda nossa api restfull.
 
-## UseContextApi
+Forma mais comun (sem axios)
 
-gerencia os estados globais fazendo compartilhamento para toda nossa arvore de componentes. (onde varios componentes vao estar compartilhando.)
+```js
+   useEffect(() => {
+      fetch('https...')     
+       .then(response =>   
+           response.json())
+       .then(data => {
+          setRepositories(data);
+       })
+   }, [])
+```
 
+Com axios.
 
-## useState
+```js
+   cons [data, setData] = useState([])
+   useEffect(() => {
+       axios.get(url)
+       .then(response => {
+           setData(response.data)
+           })
+       .finally(() => {
+           setFetching(false)
+       })
+   }, [url])
+// Criamos um hook para nossa API(para ter mais controle das propriedades)
+```
 
--setStates sao assincronas, chamar dois sets referentes no mesmo escopo pode trazer erros se nao cuidar pode nao pegar o valor atual.
+setStates sao assincronos, chamar dois sets referentes no mesmo escopo pode trazer erros se nao cuidar pode nao pegar o valor atual.
 
 errado: (ja espero colocar o valor depois de atualizar no excopo)
+```js
 function handleIncrement() {
     setCount(prevState => prevState +1)
     setMinhastring('guilherme tem contagem' + count + 1)  
     })
 }
+```
 
 certo: (faco dentro do escopo que atualizar ser chamado o estado atualizado para nosso outro state e retorno o valor)
-function handleIncrement() {
-    setCount(prevState => {
-      setMinhastring('guilherme tem contagem' + prevState + 1)
-      return prevState +1
-    })
+```js
+   function handleIncrement() {
+       setCount(prevState => {
+         setMinhastring('guilherme tem contagem' + prevState + 1)
+         return prevState +1
+       })
 }
+```
 
 
 ## useEffect 
 
-trabalhamos mais o cicli de vida de um componente da atualiza, vida e morte. 
+trabalhamos mais o cicl0 de vida de um componente da atualiza, vida e morte. 
 
-(atualiza) = [tenhomMeuItem]
-(semCiclo) = []
-(morte)    = return dentro do escopo do useEffect;
-
-useEffect(() => {
-    console.log('')
-
-    return () => {
-        console.log('holla destruction')
-    }
-}, [])
+```js
+   (atualiza) = [tenhomMeuItem]
+   (semCiclo) = []
+   (morte)    = return dentro do escopo do useEffect;
+   
+   useEffect(() => {
+       console.log('')
+   
+       return () => {
+           console.log('holla destruction')
+       }
+   }, [])
+```
 
 
 ## Arvore de uma aplicacao

@@ -1,9 +1,11 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import './App.css'
-import Item from './components/item';
+import { Item} from './components/item';
 
 function App() {
   const [items, setItems] = useState<string[]>([])
+  const [wishList, setWishList] = useState<string[]>([])
+
   const [newItem, setNewItem] = useState('');
 
   function addItemToList() {
@@ -16,6 +18,10 @@ function App() {
     return items.filter(item => item.includes('1')).length
   }, [items])
 
+  const addItemWishList = useCallback((item: string) => {
+    setWishList(state => [...state, item]);
+  }, [])
+
   return (
     <>
       <input type="text" onChange={event => setNewItem(event.target.value)} value={newItem} />
@@ -25,7 +31,14 @@ function App() {
       </div>
       <ul>
         {items.map(item => {
-          return <Item key={item} title={item} />
+          return (
+            <Item  
+              onAddItemWishList={addItemWishList}
+              countItemsWithOne={countItemsWithOne}
+              key={item} 
+              title={item} 
+            />
+          )
         })}
       </ul>
     </>

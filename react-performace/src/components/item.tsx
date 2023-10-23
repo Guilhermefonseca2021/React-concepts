@@ -2,14 +2,22 @@ import { memo } from "react";
 
 interface Props {
   title: string,
+  onAddItemWishList: (item: string) => void;
+  countItemsWithOne: number;
 }
 
-export default function Item({title}: Props) {
+
+export function Item({title, onAddItemWishList, countItemsWithOne}: Props) {
   return (
-    <li>{title}</li>
+    <li>
+      {title} - {countItemsWithOne}
+      <button onClick={() => onAddItemWishList(title)}>
+        Add to wishList
+      </button>
+    </li>
   )
 }
 
-export const Item = memo(ItemComponent, (oldProps, nextProps) => {
-  return true;
-});
+export const ItemMemo = memo(Item //(oldProps, nextProps) => {
+  //return true}
+);

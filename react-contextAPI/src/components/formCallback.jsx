@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function FormCallback({ onSubmit }) {
+export default function FormCallback(onSubmit) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 

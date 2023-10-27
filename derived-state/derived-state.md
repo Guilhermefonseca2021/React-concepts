@@ -34,3 +34,5 @@ const filteredRepos = search.length > 0
 ```
 
 pode caminhar como propriedades tambes, imagina se fosse um select com uma lista de opcoes para o usuario selecionar, eai tenho um estado para salvar, posso criar so um id
+
+<a href="https://youtu.be/kCpca2z2cls?si=v_WnDao2kOTNSx9v">Clique aqui para ver melhor a explicacao. </a>

@@ -1,0 +1,1 @@
+<A href="https://www.youtube.com/live/uNFB9EbQz90?si=-XPTu9vjC2VuGfJY"> Clique aqui para ver melhor a eexplicacao. </a>

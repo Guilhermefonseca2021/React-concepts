@@ -75,6 +75,8 @@ certo: (faco dentro do escopo que atualizar ser chamado o estado atualizado para
 }
 ```
 
+<a href="https://youtu.be/kCpca2z2cls?si=kfeB-HIqqR44Jo9A"> CLique aqui para ver melhor explicacao. </a>
+
 
 ## useEffect 
 

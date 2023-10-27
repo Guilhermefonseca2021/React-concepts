@@ -15,3 +15,6 @@ function MeuComponente(props, 1, false, 2) {
 ```
 
 React nao guarda referencia para qual hook é qual,  nao podemos ter hooks condicionais por que o react vai se perder de qual o valor do estado, caso eu queira repetidas acoes, posso passar funcoes.
+
+
+<a href="https://youtu.be/lRWf4WjfsVI?si=9wLoY3XxfeEYput9">Clique aqui para ver melhor explicacao do codigo. </a>

@@ -7,6 +7,7 @@ React usa o virtual DOM (gera uma nova versao do HTML que o usuario nao consegue
 exemplo, sao as keys do react, ele nao reescreve toda lista o react vai pegar por si so e realocar a a posicao da key. Por isso nao usamos indece ou numero aleatorios da lista para saber qual item era qual.
 
 
+
 ## useMemo
 
 1. Pure functional components
@@ -66,3 +67,7 @@ const addItemWishList = useCallback((item: string) => {
 ```
 
 usados para resolver problemas de igualdade referencial, nao fazz uma funcao ser mais rapida, apenas evita uma funcao ser recridad a cada renderizacao.
+
+
+
+<a href="https://youtu.be/NmU2nNehNNY?si=PKS-8e-3FISre6Je">Clique aqui para ver melhor explicacao do codigo. </a>
